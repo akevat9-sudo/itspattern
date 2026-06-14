@@ -21,7 +21,8 @@ EXCLUDE_NAMES = {
     'connection_profiles', 'node_modules', 'connection_system.py', 
     'connect_all.py', 'deploy_admin_php.py', 'deploy_analytics.py', 
     'deploy_main_orch.py', 'deploy_mobile_configs.py', 
-    'sync_from_serverbyt.py', 'deploy_frontend.py', '.instructions.md'
+    'sync_from_serverbyt.py', 'deploy_frontend.py', '.instructions.md',
+    'android', 'ios', 'public'
 }
 
 def should_deploy(file_path):
