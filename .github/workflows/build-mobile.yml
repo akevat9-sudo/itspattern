@@ -65,6 +65,12 @@ jobs:
       - name: Run Capacitor Sync
         run: npx cap sync ios
 
+      - name: Resolve Swift Package Dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project ios/App/App.xcodeproj \
+            -scheme App
+
       - name: Build iOS App (Simulator Debug)
         run: |
           xcodebuild \
