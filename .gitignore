@@ -1,0 +1,26 @@
+# Dependency directories
+node_modules/
+
+# IDE files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build and Temp outputs
+android/app/build/
+ios/App/build/
+*.log
+
+# Sensitive keys and connection profiles
+*.sftp_key
+*.oracle_key
+connection_profiles/
+
+# Python cache and environments
+venv/
+__pycache__/
+*.pyc
