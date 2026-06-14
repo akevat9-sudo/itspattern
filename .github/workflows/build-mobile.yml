@@ -72,6 +72,10 @@ jobs:
             pod install
           fi
 
+      - name: Resolve Swift Package Dependencies
+        run: |
+          xcodebuild -resolvePackageDependencies -workspace ios/App/App.xcworkspace -scheme App
+
       - name: Build iOS App (Simulator Debug)
         run: |
           xcodebuild \
@@ -86,6 +90,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_STATUS=NO \
             clean build
+
 
 
       - name: Zip iOS Build Product
