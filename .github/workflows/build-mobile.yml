@@ -65,17 +65,28 @@ jobs:
       - name: Run Capacitor Sync
         run: npx cap sync ios
 
+      - name: Install CocoaPods Dependencies
+        run: |
+          cd ios/App
+          if [ -f Podfile ]; then
+            pod install
+          fi
+
       - name: Build iOS App (Simulator Debug)
         run: |
           xcodebuild \
             -workspace ios/App/App.xcworkspace \
             -scheme App \
-            -sdk iphonesimulator \
             -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath ios/App/build \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_STATUS=NO \
             clean build
+
 
       - name: Zip iOS Build Product
         run: |
