@@ -1,0 +1,10 @@
+{
+  "appId": "com.lunaticmarbles.itspattern",
+  "appName": "itspattern",
+  "webDir": "public",
+  "server": {
+    "url": "https://itspattern.lunaticmarbles.com",
+    "cleartext": true
+  }
+}
+

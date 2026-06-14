@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">itspattern</string>
+    <string name="title_activity_main">itspattern</string>
+    <string name="package_name">com.lunaticmarbles.itspattern</string>
+    <string name="custom_url_scheme">com.lunaticmarbles.itspattern</string>
+</resources>

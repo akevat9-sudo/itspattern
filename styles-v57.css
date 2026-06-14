@@ -1,0 +1,1812 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+@font-face {
+    font-display: swap;
+    font-family: 'Saans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/Saans.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Saans Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/Saans-Mono.woff2') format('woff2');
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ITS PATTERN — PREMIUM DESIGN SYSTEM v3.0
+   World-class mobile health OS aesthetic
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties: Light Theme ── */
+:root {
+    --bg-body: #f4f5f8;
+    --bg-surface: #ffffff;
+    --bg-raised: #ffffff;
+    --bg-overlay: #f4f5f8;
+    --bg-input: #f9fafb;
+    --bg-header: rgba(255, 255, 255, 0.92);
+
+    --text-primary: #12131a;
+    --text-secondary: #2d3748;
+    --text-tertiary: #4a5568;
+    --text-muted: #718096;
+    --text-faint: #a0aec0;
+
+    --border-default: transparent;
+    --border-subtle: transparent;
+    --border-strong: transparent;
+
+    --accent: #ff6b00;
+    --accent-light: #ff7a1a;
+    --accent-bg: rgba(255, 107, 0, 0.05);
+    --accent-border: transparent;
+
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --card-glass-bg: #ffffff;
+    --card-glass-border: transparent;
+
+    --nav-bg: #0d0e12;
+
+    --chat-ai-bg: #f3f4f6;
+    --chat-ai-border: transparent;
+    --chat-ai-text: #12131a;
+    --chat-user-bg: #ff6b00;
+    --chat-user-text: #ffffff;
+    --chat-pill-bg: rgba(255, 107, 0, 0.05);
+    --chat-pill-border: transparent;
+    --chat-pill-text: #ff6b00;
+
+    --active-schedule-bg: #ff6b00;
+    --active-schedule-text: #ffffff;
+    --active-schedule-muted: rgba(255, 255, 255, 0.7);
+}
+
+/* ── CSS Custom Properties: Dark Theme ── */
+.dark {
+    --bg-body: #0d0e12;
+    --bg-surface: #181920;
+    --bg-raised: #1e2028;
+    --bg-overlay: #15161c;
+    --bg-input: #15161c;
+    --bg-header: rgba(13, 14, 18, 0.92);
+
+    --text-primary: #ffffff;
+    --text-secondary: #d1d2d6;
+    --text-tertiary: #a1a2a6;
+    --text-muted: #818286;
+    --text-faint: #515256;
+
+    --border-default: transparent;
+    --border-subtle: transparent;
+    --border-strong: transparent;
+
+    --accent: #ff6b00;
+    --accent-light: #ff7a1a;
+    --accent-bg: rgba(255, 107, 0, 0.08);
+    --accent-border: transparent;
+
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --card-glass-bg: #181920;
+    --card-glass-border: transparent;
+
+    --nav-bg: #0d0e12;
+
+    --chat-ai-bg: rgba(255, 255, 255, 0.08);
+    --chat-ai-border: transparent;
+    --chat-ai-text: #ffffff;
+    --chat-user-bg: #ff6b00;
+    --chat-user-text: #ffffff;
+    --chat-pill-bg: rgba(255, 107, 0, 0.08);
+    --chat-pill-border: transparent;
+    --chat-pill-text: #ff6b00;
+
+    --active-schedule-bg: #ff6b00;
+    --active-schedule-text: #ffffff;
+    --active-schedule-muted: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Global Base ── */
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: 'Saans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-body) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.app-container {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
+
+.logo-text {
+    font-family: 'Saans', sans-serif !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.5px !important;
+}
+
+button, a, [onclick], [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Safe Area / notch support ── */
+.pb-safe { padding-bottom: max(8px, env(safe-area-inset-bottom, 8px)) !important; }
+.pt-safe { padding-top:    max(8px, env(safe-area-inset-top,    8px)) !important; }
+.pl-safe { padding-left:   max(8px, env(safe-area-inset-left,   8px)) !important; }
+.pr-safe { padding-right:  max(8px, env(safe-area-inset-right,  8px)) !important; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY READABILITY OVERRIDES
+   Enforce minimum readable sizes on mobile (strictly 14px minimum)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Force all text elements to be at least 12px */
+html, body, p, span, div, button, input, textarea, select, a, li, label, i, h1, h2, h3, h4, h5, h6 {
+    font-size: 12px;
+}
+
+
+
+/* Disable text truncation and ellipsis globally to prevent cropping */
+.truncate, [class*="truncate"] {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   DARK MODE BACKGROUND / TEXT OVERRIDES
+   Deep coverage for all Tailwind utility classes
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* -- Body & main container backgrounds -- */
+.dark .bg-\[\#f8f9fa\],
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+    background-color: var(--bg-body) !important;
+}
+
+.dark .bg-white,
+.dark .bg-white\/90,
+.dark .bg-white\/80 {
+    background-color: var(--bg-surface) !important;
+}
+
+/* -- Text overrides -- */
+.dark .text-gray-900, .dark .text-gray-800, .dark .text-gray-700, .dark .text-gray-600, .dark .text-gray-500, .dark .text-gray-400, .dark .text-gray-300,
+.dark .text-slate-900, .dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500, .dark .text-slate-400, .dark .text-slate-300,
+.dark .text-indigo-200, .dark .text-indigo-300, .dark .text-indigo-400, .dark .text-indigo-200\/80, .dark .text-indigo-300\/60,
+.dark .text-white\/60, .dark .text-white\/80, .dark .text-white\/50, .dark .text-white\/35 {
+    color: var(--text-secondary) !important;
+}
+
+.dark .text-white, .dark .text-gray-100, .dark .text-gray-200, .dark .text-slate-100, .dark .text-slate-200, .dark .font-bold.text-gray-900 {
+    color: var(--text-primary) !important;
+}
+
+/* -- Border overrides -- */
+.dark .border-gray-200,
+.dark .border-gray-100,
+.dark .border-gray-300 {
+    border-color: var(--border-default) !important;
+}
+
+/* -- Input backgrounds -- */
+.dark input,
+.dark textarea,
+.dark select {
+    background-color: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-default) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    border-color: var(--accent) !important;
+}
+
+/* -- Button overrides -- */
+.dark .bg-gray-900 {
+    background-color: var(--bg-raised) !important;
+    border-color: var(--border-default) !important;
+}
+
+/* -- Misc surface fixes -- */
+.dark .bg-gray-50\/60,
+.dark .bg-orange-50\/60,
+.dark .bg-red-50\/60 {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark .bg-orange-100,
+.dark .bg-indigo-100,
+.dark .bg-amber-100 {
+    background-color: rgba(99, 102, 241, 0.1) !important;
+}
+
+.dark .border-orange-100\/50,
+.dark .border-red-100\/50,
+.dark .border-indigo-100\/40,
+.dark .border-indigo-100,
+.dark .border-indigo-200 {
+    border-color: var(--border-default) !important;
+}
+
+.dark .bg-indigo-50,
+.dark .bg-indigo-50\/40,
+.dark .bg-indigo-50\/50 {
+    background-color: rgba(99, 102, 241, 0.06) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   HEADER
+   ════════════════════════════════════════════════════════════════════════════ */
+
+header[role="banner"] {
+    background: var(--bg-header) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--border-subtle) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.dark header[role="banner"] {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   GLASSMORPHISM CARD SYSTEM
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.glass-card {
+    background: var(--card-glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: none !important;
+    border-radius: 24px !important;
+    box-shadow: var(--card-shadow);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-raised {
+    background: var(--bg-raised);
+    border: none !important;
+    border-radius: 24px !important;
+    box-shadow: var(--card-shadow);
+}
+
+.dark .glass-card {
+    background: var(--card-glass-bg);
+    border: none !important;
+    box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.dark .glass-card-raised {
+    background: var(--bg-raised);
+    border: none !important;
+    box-shadow: var(--card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* Card hover with subtle elevation */
+.card-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--accent-border);
+}
+
+.card-hover:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@keyframes breathe {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.015); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes floatUp {
+    0% { opacity: 0; transform: translateY(16px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes celebratePulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.5), 0 0 80px rgba(99, 102, 241, 0.2); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ambientGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.15), 0 0 40px rgba(99, 102, 241, 0.05); }
+    50% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.25), 0 0 60px rgba(99, 102, 241, 0.1); }
+}
+
+@keyframes typingDots {
+    0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+    40% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ringPulse {
+    0% { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3)); }
+    50% { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)); }
+    100% { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3)); }
+}
+
+.breathe { animation: breathe 4s ease-in-out infinite; }
+
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-overlay) 25%, var(--bg-raised) 50%, var(--bg-overlay) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+}
+
+.float-in {
+    animation: floatUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.screen-transition {
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spring-btn {
+    transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.spring-btn:active {
+    transform: scale(0.93);
+}
+
+.ring-progress {
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+.ring-glow {
+    animation: ambientGlow 4s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   LEVEL BADGE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.level-badge {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(129, 140, 248, 0.06));
+    border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.dark .level-badge {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(129, 140, 248, 0.1));
+    border: 1px solid rgba(129, 140, 248, 0.2);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   STREAK & NAV
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.streak-flame {
+    filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.3));
+}
+
+.dark .streak-flame {
+    filter: drop-shadow(0 0 16px rgba(249, 115, 22, 0.4));
+}
+
+.nav-active-glow {
+    text-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PREMIUM CHAT SYSTEM
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Chat area toggle */
+.task-chat-area {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.task-chat-area.open {
+    max-height: 500px;
+}
+
+/* Chat bubbles — premium styling */
+.task-chat-bubble {
+    border-radius: 16px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 82%;
+    position: relative;
+    animation: floatUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.task-chat-bubble.ai,
+.task-chat-bubble.assistant {
+    background: var(--chat-ai-bg);
+    color: var(--chat-ai-text);
+    border: 1px solid var(--chat-ai-border);
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.task-chat-bubble.user {
+    background: var(--chat-user-bg);
+    color: var(--chat-user-text);
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+}
+
+#ajay-welcome-modal {
+    background: radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%) !important;
+    background-size: 200% 200% !important;
+    animation: flowAzure 25s ease-in-out infinite alternate !important;
+}
+
+#assessment-overlay {
+    background: linear-gradient(135deg, #eef2ff 0%, #ffffff 50%, #fae8ff 100%) !important;
+    background-size: 200% 200% !important;
+    animation: flowBlueViolet 12s ease-in-out infinite alternate !important;
+    color: #1f2937 !important;
+    height: 100vh !important;
+    height: -webkit-fill-available !important;
+    overflow-y: auto !important;
+}
+
+#assessment-overlay.flex {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+#assessment-overlay.hidden {
+    display: none !important;
+}
+
+.dark #assessment-overlay {
+    background: linear-gradient(135deg, #090b16 0%, #111324 50%, #1b0a2b 100%) !important;
+    color: #f3f4f6 !important;
+}
+
+@keyframes flowAzure {
+    0% { background-position: 50% 100%; }
+    50% { background-position: 30% 60%; }
+    100% { background-position: 70% 40%; }
+}
+
+@keyframes flowBlueViolet {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 50% 100%; }
+}
+
+/* Force light theme typography inside assessment overlay ONLY when not in dark mode */
+html:not(.dark) #assessment-overlay h1,
+html:not(.dark) #assessment-overlay h2,
+html:not(.dark) #assessment-overlay h3,
+html:not(.dark) #assessment-overlay h4,
+html:not(.dark) #assessment-overlay .text-gray-950,
+html:not(.dark) #assessment-overlay .text-gray-900 {
+    color: #111827 !important;
+}
+
+html:not(.dark) #assessment-overlay p,
+html:not(.dark) #assessment-overlay li,
+html:not(.dark) #assessment-overlay .text-gray-600,
+html:not(.dark) #assessment-overlay .text-gray-500,
+html:not(.dark) #assessment-overlay .text-gray-400 {
+    color: #4b5563 !important;
+}
+
+html:not(.dark) #assessment-overlay .text-indigo-600 {
+    color: #4f46e5 !important;
+}
+
+html:not(.dark) #assessment-overlay .bg-gray-50 {
+    background-color: #f9fafb !important;
+    border-color: #f3f4f6 !important;
+}
+
+html:not(.dark) #assessment-overlay .border-gray-200,
+html:not(.dark) #assessment-overlay .border-b,
+html:not(.dark) #assessment-overlay .border-t {
+    border-color: #e5e7eb !important;
+}
+
+/* Ensure buttons in assessment overlay retain their proper contrast and color settings */
+#assessment-overlay .text-white,
+#assessment-overlay .text-white * {
+    color: #ffffff !important;
+}
+
+#assessment-overlay button *,
+#assessment-overlay .button * {
+    color: inherit;
+}
+
+/* Specific styling for the Special Offer payment button to ensure maximum contrast in both themes */
+#offer-pay-btn {
+    background-color: #111827 !important;
+    color: #ffffff !important;
+}
+
+#offer-pay-btn span {
+    color: #ffffff !important;
+}
+
+.dark #offer-pay-btn {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+
+.dark #offer-pay-btn span {
+    color: #111827 !important;
+}
+
+/* Specific styling for startAssessment button and other gradient buttons */
+#assessment-overlay button.bg-gradient-to-r,
+#assessment-overlay button.bg-gradient-to-r * {
+    color: #ffffff !important;
+}
+
+/* Habits card text contrast overrides */
+#assessment-overlay #habits-preview-card,
+#assessment-overlay #habits-preview-card * {
+    color: inherit !important;
+}
+#assessment-overlay #habits-preview-card .text-white {
+    color: #ffffff !important;
+}
+#assessment-overlay #habits-preview-card .text-gray-300 {
+    color: #d1d5db !important;
+}
+
+/* Price card text contrast overrides */
+#assessment-overlay #price-highlight-card,
+#assessment-overlay #price-highlight-card * {
+    color: inherit !important;
+}
+#assessment-overlay #price-highlight-card .text-white {
+    color: #ffffff !important;
+}
+#assessment-overlay #price-highlight-card .text-indigo-300 {
+    color: #c7d2fe !important;
+}
+#assessment-overlay #price-highlight-card .text-indigo-200 {
+    color: #e0e7ff !important;
+}
+#assessment-overlay #price-highlight-card .text-green-300 {
+    color: #86efac !important;
+}
+
+#assessment-overlay button.bg-gray-900 {
+    background-color: #111827 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+#assessment-overlay button.bg-gray-900:hover {
+    background-color: #1f2937 !important;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* AI Coach chat container — transparent to show the flowing background across the whole page */
+#assessment-container {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    padding-bottom: 2rem !important;
+}
+
+.dark #assessment-container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Quick action pills — refined monochrome */
+#assessment-container button,
+.coach-quick-action {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SCHEDULE BUTTONS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.schedule-btn {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 8px 10px !important;
+    border-radius: 16px;
+    border: 1.5px solid var(--border-default);
+    background: var(--bg-surface);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 100% !important;
+}
+
+.schedule-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    transform: translateY(-1px);
+}
+
+.schedule-btn.active {
+    border-color: var(--active-schedule-bg) !important;
+    background: var(--active-schedule-bg) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-btn:active { transform: scale(0.95); }
+
+.schedule-btn-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.schedule-btn.active .schedule-btn-text { color: var(--active-schedule-text) !important; }
+
+.schedule-btn-time {
+    font-size: 10px;
+    font-family: 'Saans Mono', monospace;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+    margin-top: 1px;
+}
+
+.schedule-btn.active .schedule-btn-time { color: var(--active-schedule-muted) !important; }
+
+/* Keep time inputs and dividers readable inside active schedule button */
+.schedule-btn.active input[type="time"],
+.schedule-btn.active span,
+.dark .schedule-btn.active input[type="time"],
+.dark .schedule-btn.active span {
+    color: var(--active-schedule-text) !important;
+}
+
+/* Hide the webkit clock picker icon inside schedule time inputs to save layout space */
+.schedule-btn input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none !important;
+    display: none !important;
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+.schedule-btn input[type="time"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+#home-schedule-list label span { text-decoration: none !important; }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MESH GRADIENTS — Fuel Card
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.mesh-gradient {
+    background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(6,182,212,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 80% at 75% 20%, rgba(37,99,235,0.40) 0%, transparent 55%),
+        radial-gradient(ellipse 90% 70% at 40% 80%, rgba(20,184,166,0.35) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 90% at 85% 75%, rgba(59,130,246,0.30) 0%, transparent 55%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(76,29,149,0.25) 0%, transparent 60%),
+        linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e3a8a 70%, #1e1b4b 100%);
+    background-size: 250% 250%;
+    animation: meshFlow 12s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.mesh-gradient::before {
+    content: ''; position: absolute; inset: -20%;
+    background:
+        radial-gradient(ellipse 70% 60% at 60% 40%, rgba(34,211,238,0.30) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 70% at 30% 70%, rgba(99,102,241,0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 80% at 80% 30%, rgba(6,182,212,0.20) 0%, transparent 60%);
+    background-size: 250% 250%;
+    animation: meshFlow 18s ease-in-out infinite reverse;
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.mesh-gradient::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+}
+
+.fuel-mesh {
+    background:
+        radial-gradient(ellipse 80% 80% at 80% 20%, rgba(190,24,93,0.60) 0%, transparent 60%),
+        radial-gradient(ellipse 90% 90% at 10% 80%, rgba(15,23,42,0.80) 0%, transparent 60%),
+        linear-gradient(135deg, #050214 0%, #170a21 40%, #701a4f 100%);
+    background-size: 200% 200%;
+    animation: meshFlow 10s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    box-shadow:
+        0 0 40px rgba(190, 24, 93, 0.15),
+        0 0 80px rgba(0, 0, 0, 0.5),
+        inset 0 0 60px rgba(255, 255, 255, 0.03);
+}
+
+.fuel-mesh::before {
+    content: ''; position: absolute; inset: -20%;
+    background:
+        radial-gradient(ellipse 70% 60% at 70% 30%, rgba(219,39,119,0.35) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 70% at 20% 80%, rgba(30,27,75,0.40) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: meshFlow 14s ease-in-out infinite reverse;
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.fuel-mesh::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.15) 100%);
+    pointer-events: none;
+}
+
+@keyframes meshFlow {
+    0% { background-position: 0% 0%; }
+    20% { background-position: 80% 20%; }
+    40% { background-position: 100% 80%; }
+    60% { background-position: 20% 100%; }
+    80% { background-position: 50% 50%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BOTTOM NAVIGATION — Premium Frosted Glass
+   ════════════════════════════════════════════════════════════════════════════ */
+
+nav {
+    background: var(--nav-bg) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* AI Center button ambient glow */
+#nav-ai {
+    box-shadow: 0 0 24px rgba(255, 107, 0, 0.4), 0 0 48px rgba(255, 107, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#nav-ai:hover,
+#nav-ai:active {
+    box-shadow: 0 0 32px rgba(255, 107, 0, 0.6), 0 0 64px rgba(255, 107, 0, 0.25);
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MODALS — Dark mode support
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.dark #add-task-modal .glass-card-raised,
+.dark #add-inventory-modal .glass-card-raised,
+.dark #research-modal .glass-card-raised {
+    background: var(--bg-raised) !important;
+    border-color: var(--border-default) !important;
+}
+
+.dark #auth-modal-content,
+.dark #legal-modal-content,
+.dark #feedback-modal-content {
+    background: var(--bg-surface) !important;
+}
+
+.dark .bg-purple-50 {
+    background-color: rgba(147, 51, 234, 0.08) !important;
+}
+
+.dark .border-purple-200 {
+    border-color: rgba(147, 51, 234, 0.15) !important;
+}
+
+.dark .text-purple-600,
+.dark .text-purple-500 {
+    color: #c084fc !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CELEBRATION OVERLAY
+   ════════════════════════════════════════════════════════════════════════════ */
+
+#celebration-overlay h2,
+#celebration-overlay p {
+    color: #ffffff !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   SCROLLBAR & TOAST
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Scrollbar hide for lists */
+#tasks-list-full::-webkit-scrollbar,
+#inventory-list::-webkit-scrollbar,
+#assessment-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.toast-container {
+    position: fixed; top: 16px; right: 16px; left: 16px; z-index: 200;
+    display: flex; flex-direction: column; gap: 8px; pointer-events: none;
+}
+
+.toast { max-width: 400px; margin-left: auto; }
+
+@media (max-width: 480px) {
+    .toast { max-width: 100%; margin-left: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE — Small phones (≤374px)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 374px) {
+    nav > div > div {
+        width: auto !important;
+        min-width: 48px !important;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+
+    nav > div > div span {
+        font-size: 8px !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .fuel-mesh {
+        padding: 16px !important;
+        min-height: 160px !important;
+    }
+
+    .fuel-mesh svg {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .glass-card { border-radius: 16px !important; }
+    .glass-card.p-5 { padding: 16px !important; }
+
+    #persona-selector > button {
+        font-size: 10px !important;
+        padding: 6px 2px !important;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PREMIUM POLISH — Extra dark mode surfaces
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Main app wrapper in dark mode */
+.dark .app-container {
+    background-color: var(--bg-body) !important;
+    border-color: var(--border-default) !important;
+}
+
+.dark .shadow-2xl {
+    box-shadow: none !important;
+}
+
+/* Filter buttons in dark mode */
+.dark .bg-gray-100.p-1.rounded-xl {
+    background-color: var(--bg-overlay) !important;
+}
+
+.dark .bg-gray-100.p-1.rounded-xl .bg-white {
+    background-color: var(--bg-raised) !important;
+}
+
+/* Notification icon backgrounds in dark mode */
+.dark .p-2.rounded-lg.bg-indigo-100 {
+    background-color: rgba(99, 102, 241, 0.12) !important;
+}
+
+.dark .text-indigo-500 {
+    color: var(--accent-light) !important;
+}
+
+.dark .text-indigo-600 {
+    color: var(--accent) !important;
+}
+
+/* Community section dark fix */
+.dark .bg-gray-50.rounded-xl {
+    background-color: var(--bg-overlay) !important;
+    border-color: var(--border-default) !important;
+}
+
+.dark .italic.text-gray-500 {
+    color: var(--text-secondary) !important;
+}
+
+/* XP bar background */
+.dark .bg-gray-200.rounded-full {
+    background-color: var(--bg-overlay) !important;
+}
+
+.dark .h-px.bg-white\/\[0\.04\] {
+    background-color: var(--border-default) !important;
+}
+
+/* Border-t fixes */
+.dark .border-t.border-gray-100,
+.dark .border-b.border-gray-100,
+.dark .border-b.border-gray-300 {
+    border-color: var(--border-default) !important;
+}
+
+/* Achievement badge pills */
+.dark .bg-white\/10 {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Toggle switch */
+.dark .bg-gray-200 {
+    background-color: var(--bg-overlay) !important;
+}
+
+/* Welcome modal */
+.dark #ajay-welcome-modal .bg-white {
+    background-color: var(--bg-surface) !important;
+}
+
+.dark .border-indigo-100 {
+    border-color: var(--accent-border) !important;
+}
+
+/* Nutrients modal */
+.dark #nutrients-modal .bg-white {
+    background-color: var(--bg-surface) !important;
+}
+
+.dark .bg-gray-100.rounded-full,
+.dark .bg-gray-100.hover\:bg-gray-200 {
+    background-color: var(--bg-overlay) !important;
+}
+
+/* Red dot notification */
+.dark .bg-red-500 {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT OPTIMIZATIONS FOR NARROW MOBILE VIEWPORTS (< 360px)
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+    /* Hide duplicate header elements and text */
+    .header-settings-btn {
+        display: none !important;
+    }
+    .header-inventory-text {
+        display: none !important;
+    }
+
+    /* Stack task card metadata under title instead of floating it absolutely on the right */
+    .glass-card .absolute.right-3.top-3 {
+        position: static !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+        margin-top: 10px !important;
+        margin-left: 28px !important; /* aligns with title */
+    }
+    .glass-card .pr-20 {
+        padding-right: 0 !important;
+    }
+
+    /* Bottom navigation bar: hide text labels, keep only icons */
+    nav span, nav[role="navigation"] span {
+        display: none !important;
+    }
+    nav .flex-col, nav [onclick] {
+        justify-content: center !important;
+        height: 100% !important;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   GLOBAL PREMIUM ACCENT OVERRIDES
+   Maps buttons, tags, and highlights to Dribbble-style Neon Orange (#ff6b00)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Primary Glowing Buttons */
+.bg-indigo-500, 
+.bg-indigo-600, 
+.bg-indigo-500\/10,
+button.bg-indigo-500,
+button.bg-indigo-600,
+#save-assessment-btn,
+#btn-confirm-log,
+#auth-submit-btn {
+    background-color: #ff6b00 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.25) !important;
+    border-radius: 20px !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.bg-indigo-500:hover, 
+.bg-indigo-600:hover,
+#save-assessment-btn:hover,
+#btn-confirm-log:hover,
+#auth-submit-btn:hover {
+    background-color: #ff7a1a !important;
+    box-shadow: 0 10px 28px rgba(255, 107, 0, 0.45) !important;
+    transform: translateY(-1px);
+}
+
+.bg-indigo-500:active, 
+.bg-indigo-600:active,
+#save-assessment-btn:active,
+#btn-confirm-log:active,
+#auth-submit-btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+/* Secondary / Passive Buttons */
+button.bg-white, 
+button.bg-gray-100, 
+#logout-btn,
+.ai-icon-btn {
+    border-radius: 16px !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.dark button.bg-white,
+.dark button.bg-gray-900,
+.dark #logout-btn,
+.dark .ai-icon-btn {
+    background-color: #20222a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark button.bg-white:hover,
+.dark button.bg-gray-900:hover,
+.dark #logout-btn:hover,
+.dark .ai-icon-btn:hover {
+    background-color: #2a2d38 !important;
+}
+
+/* Active Navigation Indicators & Icons */
+.text-indigo-500, 
+.text-indigo-600,
+#screen-home i.fa-calendar-check,
+#home-schedule-card i.fa-regular,
+#screen-tasks i.fa-wand-magic-sparkles {
+    color: #ff6b00 !important;
+}
+
+/* Segmented Pill Control (Tabs / Filters) */
+.bg-gray-100.p-1.rounded-xl {
+    background-color: #f1f2f6 !important;
+    border-radius: 14px !important;
+    padding: 3px !important;
+}
+
+.dark .bg-gray-100.p-1.rounded-xl {
+    background-color: #15161c !important;
+    border-radius: 14px !important;
+    padding: 3px !important;
+}
+
+/* Tab active highlight styling */
+.bg-gray-100.p-1.rounded-xl .bg-white {
+    background-color: #ff6b00 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2) !important;
+}
+
+.dark .bg-gray-100.p-1.rounded-xl .bg-white {
+    background-color: #ff6b00 !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2) !important;
+}
+
+/* Tab passive styling */
+.bg-gray-100.p-1.rounded-xl button {
+    border-radius: 10px !important;
+    transition: all 0.25s ease !important;
+}
+
+/* Google Fit deficit highlight */
+#fit-deficit-val {
+    color: #ff8c3a !important;
+    font-weight: 800 !important;
+}
+
+/* Fuel Progress Ring & Card Override - Restored Gradient Flow with High-Contrast White Text/Ring */
+.fuel-mesh {
+    /* Keep original animated gradient flow background, but force clean border and shadow */
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 28px;
+}
+
+/* Ensure all text inside the fuel card is always white/light grey for contrast against the dark gradient flow background */
+.fuel-mesh p,
+.fuel-mesh span,
+.fuel-mesh div {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Consume text and cost displays */
+.fuel-mesh #consumed-cost-display {
+    color: #34d399 !important; /* light green */
+    font-weight: 800 !important;
+}
+
+.fuel-mesh .text-white\/60,
+.fuel-mesh .text-indigo-200\/80,
+.fuel-mesh .text-indigo-200\/70,
+.fuel-mesh .text-indigo-300\/60,
+.fuel-mesh .text-white\/80 {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Macro grams text highlights */
+.fuel-mesh #p-curr,
+.fuel-mesh #c-curr,
+.fuel-mesh #f-curr {
+    color: #ffffff !important;
+}
+
+#fuel-ring {
+    stroke: #ffffff !important;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4)) !important;
+}
+svg circle[fill="none"][stroke="#1e1b4b"] {
+    stroke: rgba(255, 255, 255, 0.15) !important;
+    stroke-opacity: 1 !important;
+}
+
+/* XP progress bar override */
+#xp-bar {
+    background-image: none !important;
+    background-color: var(--accent) !important;
+}
+#level-xp-bar {
+    background-image: none !important;
+    background-color: var(--accent) !important;
+}
+
+/* Ensure high contrast for bottom navbar elements in all modes since the navbar is always dark */
+nav div[onclick] {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+nav div[onclick] * {
+    color: inherit !important;
+}
+nav div[onclick]:hover,
+nav div[onclick].nav-active-glow,
+nav div[onclick].text-indigo-500 {
+    color: #ffffff !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CARDLESS DESIGN — Premium borderless sections
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* homepage glass-cards: Flat dark card background, borderless, rounded */
+#screen-home .glass-card,
+#screen-home #daily-challenge-card,
+#screen-home #home-schedule-card,
+.dark #screen-home .glass-card,
+.dark #screen-home #daily-challenge-card,
+.dark #screen-home #home-schedule-card {
+    border: none !important;
+    border-width: 0px !important;
+    background: var(--bg-surface) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--card-shadow) !important;
+    padding: 20px !important;
+}
+
+#screen-home .grid.grid-cols-2 > .glass-card,
+.dark #screen-home .grid.grid-cols-2 > .glass-card {
+    background: var(--bg-surface) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--card-shadow) !important;
+    border: none !important;
+}
+
+/* Insight card top divider */
+#screen-home > .glass-card.ring-glow {
+    border-top: none !important;
+    border-radius: 24px !important;
+}
+
+/* Challenge card top divider */
+#screen-home #daily-challenge-card {
+    border-top: none !important;
+    border-radius: 24px !important;
+}
+
+/* Schedule card */
+#screen-home #home-schedule-card {
+    border-bottom: none !important;
+    border-radius: 24px !important;
+}
+
+/* PROTECT: Schedule buttons KEEP their borderless styles */
+#screen-home .schedule-btn,
+.dark #screen-home .schedule-btn {
+    border: none !important;
+    border-radius: 18px !important;
+    background: var(--bg-surface) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+.dark #screen-home .schedule-btn {
+    background: var(--bg-raised) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+#screen-home .schedule-btn.active,
+.dark #screen-home .schedule-btn.active {
+    border: none !important;
+    background: var(--accent) !important;
+    box-shadow: 0 6px 18px rgba(255, 107, 0, 0.35) !important;
+}
+
+/* Fuel progress mesh card styling */
+.fuel-mesh,
+.dark .fuel-mesh {
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: 0 8px 32px rgba(255, 107, 0, 0.15), 0 0 60px rgba(255, 107, 0, 0.06) !important;
+    background: 
+        radial-gradient(ellipse 70% 60% at 25% 35%, rgba(255,107,0,0.45) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 70% at 70% 25%, rgba(15,23,42,0.85) 0%, transparent 50%),
+        radial-gradient(ellipse 90% 80% at 40% 75%, rgba(255,107,0,0.2) 0%, transparent 55%),
+        linear-gradient(135deg, #0d0e12 0%, #1c1d24 50%, #131418 100%) !important;
+    background-size: 200% 200% !important;
+    animation: meshFlow 12s ease-in-out infinite !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ANIMATED ICONS — High-specificity colorful icons with micro-animations
+   Prefixed with #screen-home to beat Tailwind + monochrome overrides
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@keyframes flameFlicker {
+    0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 2px 4px rgba(249, 115, 22, 0.4)); }
+    25% { transform: scale(1.04) rotate(1deg); }
+    50% { transform: scale(1.1) rotate(2.5deg); filter: drop-shadow(0 4px 10px rgba(249, 115, 22, 0.7)); }
+    75% { transform: scale(1.06) rotate(0deg); }
+}
+#screen-home i.fa-fire,
+#screen-home .fa-solid.fa-fire,
+.dark #screen-home i.fa-fire,
+.dark #screen-home .fa-solid.fa-fire {
+    color: #ff6b00 !important;
+    animation: flameFlicker 1.2s ease-in-out infinite !important;
+    display: inline-block !important;
+}
+
+@keyframes boltGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(234, 179, 8, 0.3)); }
+    50% { transform: scale(1.14) skewX(-4deg); filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.8)); }
+}
+#screen-home i.fa-bolt,
+#screen-home .fa-solid.fa-bolt,
+.dark #screen-home i.fa-bolt,
+.dark #screen-home .fa-solid.fa-bolt {
+    color: #eab308 !important;
+    animation: boltGlow 1s ease-in-out infinite !important;
+    display: inline-block !important;
+}
+
+@keyframes bulbGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.3)); opacity: 0.9; }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.8)); opacity: 1; }
+}
+#screen-home i.fa-lightbulb,
+#screen-home .fa-solid.fa-lightbulb,
+.dark #screen-home i.fa-lightbulb,
+.dark #screen-home .fa-solid.fa-lightbulb {
+    color: #f59e0b !important;
+    animation: bulbGlow 1.8s ease-in-out infinite !important;
+    display: inline-block !important;
+}
+
+@keyframes targetPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.3)); }
+    50% { transform: scale(1.1) rotate(15deg); filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6)); }
+}
+#screen-home i.fa-bullseye,
+#screen-home .fa-solid.fa-bullseye,
+.dark #screen-home i.fa-bullseye,
+.dark #screen-home .fa-solid.fa-bullseye {
+    color: #6366f1 !important;
+    animation: targetPulse 1.6s ease-in-out infinite !important;
+    display: inline-block !important;
+}
+
+/* Calendar icon in schedule — keep subtle monochrome */
+#screen-home .fa-calendar-check {
+    color: var(--text-muted) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MISSING TAILWIND UTILITIES — added post-build
+   These classes were used in HTML/JS but not present during Tailwind compile.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Positioning */
+.right-2 { right: 0.5rem; }
+.right-3 { right: 0.75rem; }
+.-top-8 { top: -2rem; }
+.-right-4 { right: -1rem; }
+.top-1\/2 { top: 50%; }
+.-translate-y-1\/2 { --tw-translate-y: -50%; transform: translateY(var(--tw-translate-y)); }
+
+/* Z-index */
+.z-30 { z-index: 30; }
+
+/* Sizing — arbitrary values */
+.w-\[110px\] { width: 110px; }
+.h-\[110px\] { height: 110px; }
+.w-\[68px\] { width: 68px; }
+.h-\[68px\] { height: 68px; }
+
+/* Border widths */
+.border-\[2px\] { border-width: 2px; }
+.border-3 { border-width: 3px; }
+
+/* Padding-right for chat input */
+.pr-12 { padding-right: 3rem; }
+
+/* ===== SETTINGS SCREEN PREMIUM OVERRIDES ===== */
+#screen-settings .glass-card {
+    border: none !important;
+    background: var(--bg-surface) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+#persona-selector button {
+    border: none !important;
+    background: var(--bg-input) !important;
+    color: var(--text-muted) !important;
+    border-radius: 14px !important;
+    transition: all 0.2s ease !important;
+}
+#persona-selector button:hover {
+    background: var(--bg-raised) !important;
+    color: var(--text-primary) !important;
+}
+/* Active persona highlight style */
+#persona-selector button.border-indigo-400,
+#persona-selector button.bg-indigo-50 {
+    border: none !important;
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px rgba(255, 107, 0, 0.35) !important;
+}
+
+/* ===== PREMIUM MODAL SYSTEM OVERRIDES ===== */
+/* Make all modal sheets borderless, squircle (28px), and deep charcoal background */
+.glass-card-raised,
+#daily-schedule-modal-content,
+#auth-modal-content,
+#legal-modal-content,
+#feedback-modal-content,
+#nutrients-modal > div {
+    background: var(--bg-surface) !important;
+    border: none !important;
+    border-width: 0 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4) !important;
+}
+
+/* For modals that slide up from bottom (toggled by transform translate-y-full) */
+#daily-schedule-modal-content,
+#auth-modal-content,
+#legal-modal-content,
+#feedback-modal-content,
+#nutrients-modal > div {
+    border-top-left-radius: 32px !important;
+    border-top-right-radius: 32px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+/* Modal text input and controls */
+.glass-card-raised input,
+.glass-card-raised select,
+.glass-card-raised textarea,
+#daily-schedule-modal-content input,
+#daily-schedule-modal-content select,
+#health-assessment-modal input,
+#health-assessment-modal select,
+#auth-modal input,
+#feedback-modal textarea {
+    background-color: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 12px 16px !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Orange focus highlight on inputs */
+.glass-card-raised input:focus,
+.glass-card-raised select:focus,
+.glass-card-raised textarea:focus,
+#daily-schedule-modal-content input:focus,
+#health-assessment-modal input:focus,
+#auth-modal input:focus,
+#feedback-modal textarea:focus {
+    box-shadow: 0 0 0 2px var(--accent) !important;
+    outline: none !important;
+}
+
+/* Modal buttons styling */
+.glass-card-raised button,
+#daily-schedule-modal-content button,
+#health-assessment-modal button,
+#auth-modal button,
+#feedback-modal button,
+#legal-modal button,
+#nutrients-modal button {
+    border: none !important;
+    border-radius: 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Secondary/Cancel buttons inside modals */
+.glass-card-raised button.border-gray-200,
+.glass-card-raised button.hover:bg-gray-50,
+#daily-schedule-modal-content button.border-gray-200,
+#health-assessment-modal button.border-gray-200,
+#auth-modal button.border-gray-200,
+#feedback-modal button.border-gray-200,
+#nutrients-modal button {
+    background-color: var(--bg-input) !important;
+    color: var(--text-secondary) !important;
+}
+.glass-card-raised button.border-gray-200:hover,
+#daily-schedule-modal-content button.border-gray-200:hover {
+    background-color: var(--bg-raised) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Health Assessment Results Card */
+#assess-metrics-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: none !important;
+    margin-top: 40px !important;
+}
+#assess-bmi-val,
+#assess-bmr-val {
+    color: var(--accent) !important;
+    text-shadow: 0 0 10px rgba(255, 107, 0, 0.2);
+}
+#assess-bmi-label {
+    color: var(--text-muted) !important;
+}
+
+#health-assessment-modal div.border-b,
+#health-assessment-modal div.border-t {
+    border-color: transparent !important;
+}
+
+/* Welcome modal overrides */
+#ajay-welcome-modal > div {
+    background: var(--bg-surface) !important;
+    border: none !important;
+    border-radius: 28px !important;
+}
+#ajay-welcome-modal h2 {
+    color: var(--text-primary) !important;
+}
+#ajay-welcome-modal p {
+    color: var(--text-secondary) !important;
+}
+
+/* ===== SETTINGS HEALTH CARD & BMI/BMR PREMIUM STYLES ===== */
+#screen-settings .bg-gray-50\/50.dark\:bg-black\/35,
+#screen-settings .bg-gray-50.dark\:bg-gray-900 {
+    background: var(--bg-input) !important;
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+#screen-settings button[onclick="toggleHealthAssessmentModal(true)"] {
+    background: var(--accent) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2) !important;
+    border-radius: 12px !important;
+    border: none !important;
+}
+
+#screen-settings .bg-gray-900.dark\:bg-indigo-600 {
+    background: var(--accent) !important;
+}
+
+#screen-settings #logout-btn {
+    background: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-default) !important;
+}
+
+#health-assessment-modal {
+    background: radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%) !important;
+    background-size: 200% 200% !important;
+    animation: flowAzure 25s ease-in-out infinite alternate !important;
+    color: #eceef2 !important;
+}
+
+#health-assessment-modal div.border-b,
+#health-assessment-modal div.border-t {
+    border-color: rgba(255, 255, 255, 0.06) !important;
+    background: transparent !important;
+}
+
+#health-assessment-modal h2 {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+#health-assessment-modal p.text-sm {
+    color: #a5b4fc !important;
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+}
+
+#health-assessment-modal label {
+    color: #818cf8 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+}
+
+#health-assessment-modal input,
+#health-assessment-modal select {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    outline: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#health-assessment-modal input::placeholder {
+    color: rgba(255, 255, 255, 0.25) !important;
+}
+
+#health-assessment-modal input:focus,
+#health-assessment-modal select:focus {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    border-color: #ff6b00 !important;
+    box-shadow: 0 0 16px rgba(255, 107, 0, 0.25) !important;
+}
+
+/* Close button style */
+#health-assessment-modal button[onclick="toggleHealthAssessmentModal(false)"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #a5b4fc !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.2s ease !important;
+}
+
+#health-assessment-modal button[onclick="toggleHealthAssessmentModal(false)"]:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+/* Save / Sync Button */
+#health-assessment-modal #save-assessment-btn {
+    background: #ff6b00 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 16px !important;
+    padding: 14px 16px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#health-assessment-modal #save-assessment-btn:hover:not(:disabled) {
+    background: #ff8533 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(255, 107, 0, 0.4) !important;
+}
+
+#health-assessment-modal #save-assessment-btn:disabled {
+    opacity: 0.4 !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Take Full Assessment Button */
+#health-assessment-modal button[onclick="toggleHealthAssessmentModal(false); startAssessment()"] {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    padding: 12px 16px !important;
+    font-weight: 700 !important;
+    transition: all 0.25s ease !important;
+}
+
+#health-assessment-modal button[onclick="toggleHealthAssessmentModal(false); startAssessment()"]:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Live Metrics Results Card */
+#health-assessment-modal #assess-metrics-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 24px !important;
+    padding: 20px !important;
+    margin-top: 40px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
+#health-assessment-modal #assess-metrics-card div.divide-x {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+#health-assessment-modal #assess-bmi-val,
+#health-assessment-modal #assess-bmr-val {
+    color: #ff6b00 !important;
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em !important;
+    text-shadow: 0 0 12px rgba(255, 107, 0, 0.3) !important;
+}
+
+#health-assessment-modal #assess-bmi-label {
+    color: #a5b4fc !important;
+    font-weight: 600 !important;
+}
+
+#screen-stats .bg-gray-100.dark\:bg-gray-800 {
+    background: var(--bg-input) !important;
+    border: none !important;
+    border-radius: 12px !important;
+}
+
+#btn-metrics-bmi, #btn-metrics-bmr {
+    border-radius: 10px !important;
+}
+
+#btn-metrics-bmi.bg-white.dark\:bg-gray-900,
+#btn-metrics-bmr.bg-white.dark\:bg-gray-900 {
+    background: var(--bg-surface) !important;
+    color: var(--accent) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+}
+
+.glass-card-raised h3, 
+#auth-modal-title,
+#legal-title,
+#health-assessment-modal h2 {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Custom Gradients for Assessment Buttons to fix missing tailwind classes */
+.bg-btn-explore {
+    background: linear-gradient(to right, #16a34a, #059669, #0d9488);
+}
+.group:hover .bg-btn-explore {
+    background: linear-gradient(to right, #22c55e, #14b8a6);
+}
+.bg-btn-unlock {
+    background: linear-gradient(to right, #2563eb, #4f46e5, #7c3aed);
+}
+.group:hover .bg-btn-unlock {
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
